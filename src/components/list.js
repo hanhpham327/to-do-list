@@ -7,7 +7,17 @@ export default props=>{
         return <h1 className='center grey-text text-lighten-2'>No To Do Items</h1>
     }
     const listElements = props.data.map((item,index)=>{
-        return <li key={index} className="collection-item">{item.title}</li>
+        return (
+            <li key={index} className="collection-item row">
+                <div className="col s10">
+                    {item.title}
+                </div>
+                <div>
+                    <button className="btn red darken-2" onClick={()=>{props.delete(index)}}>Delete</button>
+                    {/* <button className="btn red darken-2" onClick={()=>{props.delete(index)}}>Delete</button> */}
+                </div>
+            </li>
+        )
     
     })
     // })

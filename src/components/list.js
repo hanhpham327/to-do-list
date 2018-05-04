@@ -1,11 +1,12 @@
 import React from 'react';
-import listData from '../helpers/list_data';
 
 //es6
 export default props=>{
-    console.log('list data',listData);
-
-    const listElements = listData.map((item,index)=>{
+    console.log('list data',props.data);
+    if(!props.data.length){
+        return <h1 className='center grey-text text-lighten-2'>No To Do Items</h1>
+    }
+    const listElements = props.data.map((item,index)=>{
         return <li key={index} className="collection-item">{item.title}</li>
     
     })
@@ -15,12 +16,9 @@ export default props=>{
     // })
 
     return (
-        <div>
-            <h3>List will be here</h3>
-            <ul className="collection">
-                {listElements}
-            </ul>
-        </div>
-    )
+        <ul className="collection">
+            {listElements}
+        </ul>        
+        )
 }
 
